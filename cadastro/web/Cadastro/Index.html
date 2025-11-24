@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Cadastro de Clientes</title>
+<link rel="stylesheet" href="../resources/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro de Clientes</h2>
+
+        <form action="Cadastrar.jsp" method="post" class="form-atualizar">
+            <!-- Nome -->
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+
+            <!-- Sobrenome -->
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome:</label>
+                <input type="text" id="sobrenome" name="sobrenome" required>
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-group">
+                <label for="emailComercial">E-mail Comercial:</label>
+                <input type="email" id="emailComercial" name="emailComercial" required>
+            </div>
+
+            <!-- Telefone -->
+            <div class="form-group">
+                <label for="telefoneComercial">Telefone Comercial:</label>
+                <input type="text" id="telefoneComercial" name="telefoneComercial" required>
+            </div>
+
+            <!-- Cargo -->
+            <div class="form-group">
+                <label for="funcaoCargo">Função / Cargo:</label>
+                <input type="text" id="funcaoCargo" name="funcaoCargo" required>
+            </div>
+
+            <!-- Área / Departamento -->
+            <div class="form-group">
+                <label for="areaFuncionalDepartamento">Área / Departamento:</label>
+                <input type="text" id="areaFuncionalDepartamento" name="areaFuncionalDepartamento" required>
+            </div>
+
+            <!-- Organização -->
+            <div class="form-group">
+                <label for="nomeDeSuaOrganizacao">Nome da Organização:</label>
+                <input type="text" id="nomeDeSuaOrganizacao" name="nomeDeSuaOrganizacao" required>
+            </div>
+
+            <!-- País / Região -->
+            <div class="form-group">
+                <label for="paisRegiao">País / Região:</label>
+                <input type="text" id="paisRegiao" name="paisRegiao" required>
+            </div>
+
+            <!-- CEP -->
+            <div class="form-group">
+                <label for="cepCodigoPostal">CEP / Código Postal:</label>
+                <input type="text" id="cepCodigoPostal" name="cepCodigoPostal" required>
+            </div>
+
+            <!-- Interesse -->
+            <div class="form-group">
+                <label for="interessePrincipalProduto">Interesse Principal / Produto:</label>
+                <input type="text" id="interessePrincipalProduto" name="interessePrincipalProduto" required>
+            </div>
+
+            <!-- Botão -->
+            <div class="form-actions">
+                <button type="submit" class="btn">Cadastrar Cliente</button>
+            </div>
+        </form>
+
+        <!-- Links extras -->
+        <div class="links-extras">
+            <p><a href="Atualizar.jsp">Atualizar valores</a></p>
+            <p><a href="Delete.jsp">Deletar valores</a></p>
+        </div>
+    </div>
+</body>
+</html>
