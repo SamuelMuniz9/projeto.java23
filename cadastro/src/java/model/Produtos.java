@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author gta98
+ * @author 
  */
 public class Produtos {
    private int id_produto;
