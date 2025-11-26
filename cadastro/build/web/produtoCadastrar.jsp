@@ -40,26 +40,39 @@
 
     <h1>Cadastrar Produto</h1>
 
-    <form action="produtoCadastrar.jsp" method="post">
+    <form class="row g-3" action="produtoCadastrar.jsp" method="post">
+                                   <div class="col-md-6">
+                                    <label  class="form-label">Nome</label>
+                                    <input type="text" class="form-control" name="nome" required>
+                                  </div>
 
-        Nome:<br>
-        <input type="text" name="nome" required><br><br>
+                                  <div class="col-md-6">
+                                    <label  class="form-label">Categoria</label>
+                                    <input type="text" class="form-control" name="categoria" required>
+                                  </div>
 
-        Categoria:<br>
-        <input type="text" name="categoria"><br><br>
 
-        Preço de Venda:<br>
-        <input type="number" step="0.01" name="preco_venda" required><br><br>
+                                  <div class="col-12">
+                                    <label class="form-label">Preço de venda</label>
+                                    <input type="number" step="0.01" name="preco_venda" class="form-control" placeholder="R$" required>
+                                  </div>
 
-        Preço de Custo:<br>
-        <input type="number" step="0.01" name="preco_custo"><br><br>
+                                  <div class="col-12">
+                                    <label  class="form-label">Preço de Custo</label>
+                                    <input type="number" class="form-control" placeholder="R$" name="preco_custo" required>
+                                  </div>
 
-        Unidade de Medida:<br>
-        <input type="text" name="unidade_medida"><br><br>
+                                  <div class="col-md-6">
+                                    <label class="form-label">Unidade de Medida</label>
+                                    <input type="text" class="form-control" name="unidade_medida" required>
+                                  </div>
 
-        <input type="submit" value="Cadastrar">
-
-    </form>
+                              
+                                  <div class="col-12">
+                                    <input type="submit" class="btn btn-primary" type="submit" value="Cadastrar">
+                                    <a class="btn btn-primary" href="produtoListar.jsp">Lista Produtos</a>
+                                  </div>
+                                </form>
 
 <%
         String nome = request.getParameter("nome");
@@ -87,8 +100,6 @@
         }
     %>
 
-    <br><br>
-    <a href="produtoListar.jsp">Listar Produtos</a>
 
 </body>
 </html>

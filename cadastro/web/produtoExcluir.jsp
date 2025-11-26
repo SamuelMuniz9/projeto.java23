@@ -59,7 +59,7 @@
 
 <h2><%= mensagem %></h2>
 
-<a href="produtoListar.jsp">Voltar para lista de produtos</a>
+<a class="btn btn-success" href="produtoListar.jsp">Voltar para lista de produtos</a>
 
 </body>
 </html>

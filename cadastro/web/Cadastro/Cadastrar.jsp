@@ -6,7 +6,25 @@
     <head>
         <meta charset="UTF-8">
         <title>Cadastro de Clientes</title>
-        <link rel="stylesheet" href="resources/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="" />
+        
+        
+        <!<!-- Link para funcionamento do frontend -->
+
+        <link rel="stylesheet" href="../resources/styles.css">
+        <link rel="stylesheet" href="../resources/reset.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link
+          rel="canonical"
+          href="https://getbootstrap.com/docs/5.3/examples/sidebars/"
+        />
+        <script src="../JS/color-modes.js"></script>
+        <link href="../resources/bootstrap.min.css" rel="stylesheet" /> 
+        <meta name="theme-color" content="#712cf9" />
+        <link href="../resources/reset.css" rel="stylesheet" />
+        <link href="../resources/estoque.css" rel="stylesheet" />
+   
 
     </head>
     <body>
@@ -33,7 +51,7 @@
                             // Mostrar dados enviados
                     %>
                             <h3>Dados Enviados</h3>
-                            <ul class="data-list">
+                            <ul class="data-list card">
                                 <li><strong>Nome:</strong> <%= cli.getNome() %> <%= cli.getSobrenome() %></li>
                                 <li><strong>E-mail:</strong> <%= cli.getEmailComercial() %></li>
                                 <li><strong>Telefone:</strong> <%= cli.getTelefoneComercial() %></li>

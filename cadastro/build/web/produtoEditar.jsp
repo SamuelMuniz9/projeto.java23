@@ -48,26 +48,39 @@
 
 <h1>Editar Produto</h1>
 
-<form action="produtoEditar.jsp?id=<%= id %>" method="post">
+<form class="row g-3 "action="produtoEditar.jsp?id=<%= id %>" method="post">
+                                  <div class="col-md-6">
+                                    <label  class="form-label">Nome</label>
+                                    <input type="text" class="form-control" name="nome" value="<%= p.getNome() %>" required>
+                                  </div>
 
-    Nome:<br>
-    <input type="text" name="nome" value="<%= p.getNome() %>" required><br><br>
+                                  <div class="col-md-6">
+                                    <label  class="form-label">Categoria</label>
+                                    <input type="text" class="form-control" name="categoria"  value="<%= p.getCategoria() %>"required>
+                                  </div>
 
-    Categoria:<br>
-    <input type="text" name="categoria" value="<%= p.getCategoria() %>"><br><br>
 
-    Preço de Venda:<br>
-    <input type="number" step="0.01" name="preco_venda" value="<%= p.getPreco_venda() %>" required><br><br>
+                                  <div class="col-12">
+                                    <label class="form-label">Preço de venda</label>
+                                    <input type="number" step="0.01" name="preco_venda" class="form-control" placeholder="R$" value="<%= p.getPreco_venda() %>" required>
+                                  </div>
 
-    Preço de Custo:<br>
-    <input type="number" step="0.01" name="preco_custo" value="<%= p.getPreco_custo() %>"><br><br>
+                                  <div class="col-12">
+                                    <label  class="form-label">Preço de Custo</label>
+                                    <input type="number" class="form-control" placeholder="R$" name="preco_custo" value="<%= p.getPreco_custo() %>" required>
+                                  </div>
 
-    Unidade de Medida:<br>
-    <input type="text" name="unidade_medida" value="<%= p.getUnidade_medida() %>"><br><br>
+                                  <div class="col-md-6">
+                                    <label class="form-label">Unidade de Medida</label>
+                                    <input type="text" class="form-control" name="unidade_medida" value="<%= p.getUnidade_medida() %>" required>
+                                  </div>
 
-    <input type="submit" value="Salvar Alterações">
-
-</form>
+                              
+                                  <div class="col-12">
+                                    <input type="submit" class="btn btn-primary"  value="Salvar Alterações">
+                                    <a class="btn btn-primary" href="produtoListar.jsp">Voltar</a>
+                                  </div>
+                                </form>
 
 <%
 
@@ -89,8 +102,8 @@
     }
 %>
 
-<br>
-<a href="produtoListar.jsp">Voltar</a>
+
+
 
 </body>
 </html>
