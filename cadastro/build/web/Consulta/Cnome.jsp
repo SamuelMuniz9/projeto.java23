@@ -8,14 +8,36 @@
     <head>
         <meta charset="UTF-8">
         <title>Consulta por Nome</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="" />
+        
+        
+        <!<!-- Link para funcionamento do frontend -->
+
+        <link rel="stylesheet" href="../resources/styles.css">
+        <link rel="stylesheet" href="../resources/reset.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link
+          rel="canonical"
+          href="https://getbootstrap.com/docs/5.3/examples/sidebars/"
+        />
+        <script src="../JS/color-modes.js"></script>
+        <link href="../resources/bootstrap.min.css" rel="stylesheet" /> 
+        <meta name="theme-color" content="#712cf9" />
+        <link href="../resources/reset.css" rel="stylesheet" />
+        <link href="../resources/estoque.css" rel="stylesheet" />
+        
+        
     </head>
     <body>
         <h2>Consulta de Cliente por Nome</h2>
 
         <form method="post">
-            <label>Nome do Cliente:</label>
+            <label class="fs-2 card-title">Nome do Cliente:</label>
             <input type="text" name="nome" required>
-            <button type="submit">Consultar</button>
+            <br>
+            <button type="submit" class="btn btn-primary">Consultar</button>
+            <a href="../" class="card-title btn btn-light">Retornar</a
         </form>
 
         <%
@@ -41,6 +63,8 @@ if (paramNome != null && paramNome.trim().length() > 0) {
             out.println("País: " + cli.getPaisRegiao() + "<br>");
             out.println("CEP: " + cli.getCepCodigoPostal() + "<br>");
             out.println("Interesse: " + cli.getInteressePrincipalProduto() + "<br>");
+            
+            
         }
 
     } else {
@@ -49,5 +73,8 @@ if (paramNome != null && paramNome.trim().length() > 0) {
 }
 
         %>
+        
+    
+
     </body>
 </html>

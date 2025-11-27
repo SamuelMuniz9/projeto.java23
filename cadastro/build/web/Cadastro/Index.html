@@ -29,80 +29,77 @@
     <div class="container">
         <h2>Cadastro de Clientes</h2>
 
-        <form action="Cadastrar.jsp" method="post" class="form-atualizar">
-            <!-- Nome -->
-            <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
+        <form action="Cadastrar.jsp" method="post" class="form-atualizar row g-3">
+           <div class="col-md-6">
+             <label for="nome" class="form-label">Nome</label>
+             <input type="text" class="form-control" id="nome" name="nome" required>
+           </div>
+
+           <div class="col-md-6">
+             <label for="sobrenome" class="form-label">Sobrenome</label>
+             <input type="text" class="form-control" name="sobrenome" id="sobrenome" required>
+           </div>
+
+
+           <div class="col-12">
+             <label for="emailComercial" class="form-label">E-mail Comercial</label>
+             <input type="email" name="emailComercial" id="emailComercial" class="form-control" placeholder="exemplo@email.com" required>
+           </div>
+
+           <div class="col-12">
+             <label  for="telefoneComercial" class="form-label">Telefone Comercial</label>
+             <input type="text" class="form-control" placeholder="11 00000-0000" name="telefoneComercial" id="telefoneComercial"  required>
+           </div>
+
+           <div class="col-md-6">
+             <label for="funcaoCargo" class="form-label">Função / Cargo</label>
+             <input type="text" class="form-control" name="funcaoCargo" id="funcaoCargo"  required>
+           </div>
+
+           <div class="col-md-6">
+             <label for="areaFuncionalDepartamento" class="form-label">Área / Departamento</label>
+             <input type="text" class="form-control" id="areaFuncionalDepartamento" name="areaFuncionalDepartamento" required>
+           </div>
+
+                                  
+           <div class="col-md-4">
+             <label for="nomeDeSuaOrganizacao" class="form-label">Nome da Organização</label>
+             <input type="text" class="form-control" id="nomeDeSuaOrganizacao" name="nomeDeSuaOrganizacao" required>
+           </div>
+
+                                  
+           <div class="col-md-4">
+             <label for="paisRegiao" class="form-label">País / Região</label>
+             <input type="text" class="form-control" id="paisRegiao"  name="paisRegiao"  required>
+           </div>
+
+                                  
+           <div class="col-md-4">
+             <label for="cepCodigoPostal" class="form-label">CEP</label>
+             <input type="text" class="form-control" id="cepCodigoPostal" name="cepCodigoPostal" required>
+           </div>
+
+                                  
+           <div class="col-md-12">
+             <label  for="interessePrincipalProduto" class="form-label">interesse</label>
+             <input type="text" class="form-control" id="interessePrincipalProduto" name="interessePrincipalProduto" required>
+           </div>
+                              
+           <!--botao-->
+           <div class="form actions col-12">
+                <button type="submit" class="btn btn-success">Cadastrar Cliente</button> 
+             <!-- Links extras -->
+                <a href="../"><p class="btn btn-secondary" >Retornar</p></a>
+                <a href="Atualizar.jsp"><p class="btn btn-primary" >Atualizar valores</p></a>
+                <a href="Delete.jsp"><p class="btn btn-primary">Deletar valores</p></a>
             </div>
 
-            <!-- Sobrenome -->
-            <div class="form-group">
-                <label for="sobrenome">Sobrenome:</label>
-                <input type="text" id="sobrenome" name="sobrenome" required>
-            </div>
 
-            <!-- E-mail -->
-            <div class="form-group">
-                <label for="emailComercial">E-mail Comercial:</label>
-                <input type="email" id="emailComercial" name="emailComercial" required>
-            </div>
 
-            <!-- Telefone -->
-            <div class="form-group">
-                <label for="telefoneComercial">Telefone Comercial:</label>
-                <input type="text" id="telefoneComercial" name="telefoneComercial" required>
-            </div>
-
-            <!-- Cargo -->
-            <div class="form-group">
-                <label for="funcaoCargo">Função / Cargo:</label>
-                <input type="text" id="funcaoCargo" name="funcaoCargo" required>
-            </div>
-
-            <!-- Área / Departamento -->
-            <div class="form-group">
-                <label for="areaFuncionalDepartamento">Área / Departamento:</label>
-                <input type="text" id="areaFuncionalDepartamento" name="areaFuncionalDepartamento" required>
-            </div>
-
-            <!-- Organização -->
-            <div class="form-group">
-                <label for="nomeDeSuaOrganizacao">Nome da Organização:</label>
-                <input type="text" id="nomeDeSuaOrganizacao" name="nomeDeSuaOrganizacao" required>
-            </div>
-
-            <!-- País / Região -->
-            <div class="form-group">
-                <label for="paisRegiao">País / Região:</label>
-                <input type="text" id="paisRegiao" name="paisRegiao" required>
-            </div>
-
-            <!-- CEP -->
-            <div class="form-group">
-                <label for="cepCodigoPostal">CEP / Código Postal:</label>
-                <input type="text" id="cepCodigoPostal" name="cepCodigoPostal" required>
-            </div>
-
-            <!-- Interesse -->
-            <div class="form-group">
-                <label for="interessePrincipalProduto">Interesse Principal / Produto:</label>
-                <input type="text" id="interessePrincipalProduto" name="interessePrincipalProduto" required>
-            </div>
-
-            <!-- Botão -->
-            <div class="form-actions">
-                <button type="submit" class="btn btn-success" style="margin: 0.5rem 0rem">Cadastrar Cliente</button>
-                
-            </div>
         </form>
 
-        <!-- Links extras -->
-        <div class="links-extras">
-            <a href="../"><p class="btn btn-secondary" >Retornar</p></a>
-            <a href="Atualizar.jsp"><p class="btn btn-primary" >Atualizar valores</p></a>
-            <a href="Delete.jsp"><p class="btn btn-primary">Deletar valores</p></a>
-        </div>
+
+     
     </div>
 </body>
 </html>

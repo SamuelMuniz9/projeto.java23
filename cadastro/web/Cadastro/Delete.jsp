@@ -43,7 +43,9 @@
             </div>
 
             <div class="form-actions">
-                <button type="submit" class="btn danger">Deletar</button>
+                <button type="submit" class="btn btn-danger">Deletar</button>
+                <a href="../"><p class="btn btn-secondary" >Retornar</p></a>
+
             </div>
         </form>
 
@@ -56,9 +58,9 @@
                         int id = Integer.parseInt(paramId);
                         ClienteDAO dao = new ClienteDAO();
                         if (dao.deletar(id)) {
-                            out.println("<p class='success'>✅ Cliente deletado com sucesso!</p>");
+                            out.println("<p class='fs-5 card-title text-uppercase'>✅ Cliente deletado com sucesso!</p>");
                         } else {
-                            out.println("<p class='error'>❌ Nenhum cliente encontrado com esse ID.</p>");
+                            out.println("<p class='fs-5 card-title text-uppercase'>❌ Nenhum cliente encontrado com esse ID.</p>");
                         }
                     } catch (NumberFormatException e) {
                         out.println("<p class='error'>⚠️ ID inválido.</p>");

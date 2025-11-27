@@ -50,17 +50,17 @@
 
                             // Mostrar dados enviados
                     %>
-                            <h3>Dados Enviados</h3>
+                            <h3 class="fs-3 card-title">Dados Enviados</h3>
                             <ul class="data-list card">
-                                <li><strong>Nome:</strong> <%= cli.getNome() %> <%= cli.getSobrenome() %></li>
-                                <li><strong>E-mail:</strong> <%= cli.getEmailComercial() %></li>
-                                <li><strong>Telefone:</strong> <%= cli.getTelefoneComercial() %></li>
-                                <li><strong>Função/Cargo:</strong> <%= cli.getFuncaoCargo() %></li>
-                                <li><strong>Departamento:</strong> <%= cli.getAreaFuncionalDepartamento() %></li>
-                                <li><strong>Organização:</strong> <%= cli.getNomeDeSuaOrganizacao() %></li>
-                                <li><strong>País/Região:</strong> <%= cli.getPaisRegiao() %></li>
-                                <li><strong>CEP:</strong> <%= cli.getCepCodigoPostal() %></li>
-                                <li><strong>Interesse:</strong> <%= cli.getInteressePrincipalProduto() %></li>
+                                <li class="fs-5 card-title"><strong>Nome:</strong> <%= cli.getNome() %> <%= cli.getSobrenome() %></li>
+                                <li class="fs-5 card-title"><strong>E-mail:</strong> <%= cli.getEmailComercial() %></li>
+                                <li class="fs-5 card-title"><strong>Telefone:</strong> <%= cli.getTelefoneComercial() %></li>
+                                <li class="fs-5 card-title"><strong>Função/Cargo:</strong> <%= cli.getFuncaoCargo() %></li>
+                                <li class="fs-5 card-title"><strong>Departamento:</strong> <%= cli.getAreaFuncionalDepartamento() %></li>
+                                <li class="fs-5 card-title"><strong>Organização:</strong> <%= cli.getNomeDeSuaOrganizacao() %></li>
+                                <li class="fs-5 card-title"><strong>País/Região:</strong> <%= cli.getPaisRegiao() %></li>
+                                <li class="fs-5 card-title"><strong>CEP:</strong> <%= cli.getCepCodigoPostal() %></li>
+                                <li class="fs-5 card-title"><strong>Interesse:</strong> <%= cli.getInteressePrincipalProduto() %></li>
                             </ul>
 
                             <div class="status-message">
@@ -69,11 +69,14 @@
                                     ClienteDAO cliDAO = new ClienteDAO();
                                     if (cliDAO.cadastrar(cli)) {
                                 %>
-                                        <p class="success">✅ Cliente inserido com sucesso!</p>
+                                        <p class="fs-5 card-title text-uppercase">✅ Cliente inserido com sucesso!</p><br
+                                        <a href="../" class="card-title btn btn-info">Retornar</a>
                                 <%
                                     } else {
                                 %>
-                                        <p class="error">❌ Falha ao cadastrar cliente!</p>
+                                        <p class="fs-5 card-title text-uppercase">❌ Falha ao cadastrar cliente!</p><br>
+                                        <a href="../" class="card-title btn btn-info">Retornar</a>
+
                                 <%
                                     }
                                 %>

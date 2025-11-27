@@ -61,8 +61,8 @@
         <div class="tabs">
             <div class="tab-list">
                 <button class="tab-button active btn-glow">Movimentações</button>
-                <a href="produtoCadastrar.jsp"><button class="tab-button btn-glow">Cadastrar Novo Produto</button></a>
-                <a href="index.html"><button class="tab-button btn-glow">Voltar</button></a>
+                <a href="produtoCadastrar.jsp"><button class="tab-button btn-glow ">Cadastrar Novo Produto</button></a>
+                <a href="index.html"><button class="tab-button btn-glow btn-secondary">Voltar</button></a>
 
      
             </div>
