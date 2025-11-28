@@ -28,8 +28,66 @@
         <link href="../resources/estoque.css" rel="stylesheet" />
         
         
+                <!<!-- sidebar -->
+        <link rel="stylesheet" href="../resources/sidebars.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"
+        />
+        <link
+          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+          rel="stylesheet"
+        />
+        <script src="https://unpkg.com/akar-icons-fonts"></script>
+        
+        
+        
     </head>
     <body>
+        <!--sidebar-->
+    
+        <aside class="sidebar">
+          <div class="left">
+           <br>
+            <button>
+              <i class=" ai-home-alt1"></i>
+            </button>
+
+
+            <button>
+              <a href="../"><i class="ai-link-out"></i></a>
+            </button>
+
+          </div>
+          <div class="right">
+            <h1>📋 Consulta</h1>
+            <nav class="buttons">
+              <button>
+                 <a href="ConsultaGeral.jsp" class="fs-2 btn card-title"><i class="ai-dashboard"></i></a>
+                <span>Geral</span>
+              </button>
+
+            </nav>
+            <h2>🔎 Consulta Por: </h2>
+            <nav class="buttons">
+              <button>
+                <a href="Cnome.jsp" class=" fs-2 btn card-title"><i class="ai-people-multiple"></i></a>
+                <span>Nome</span>
+              </button>
+              <button>
+                <a href="Cid.jsp" class="fs-2 btn card-title"><i class="ai-statistic-up"></i></a>
+                <span>Id</span>
+              </button>
+            </nav>
+          </div>
+        </aside>
+        <div style="margin-left:150px">
         <h2>Consulta de Cliente por Nome</h2>
 
         <form method="post">
@@ -37,7 +95,7 @@
             <input type="text" name="nome" required>
             <br>
             <button type="submit" class="btn btn-primary">Consultar</button>
-            <a href="../" class="card-title btn btn-light">Retornar</a
+            <a href="ConsultaGeral.jsp" class="card-title btn btn-light">Retornar</a
         </form>
 
         <%
@@ -74,7 +132,7 @@ if (paramNome != null && paramNome.trim().length() > 0) {
 
         %>
         
-    
+        </div>
 
     </body>
 </html>

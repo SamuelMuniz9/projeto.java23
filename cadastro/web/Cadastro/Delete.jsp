@@ -44,7 +44,7 @@
 
             <div class="form-actions">
                 <button type="submit" class="btn btn-danger">Deletar</button>
-                <a href="../"><p class="btn btn-secondary" >Retornar</p></a>
+                <a href="Index.html"><p class="btn btn-secondary" >Retornar</p></a>
 
             </div>
         </form>

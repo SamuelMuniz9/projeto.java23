@@ -19,6 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 body {
+  overflow: hidden;
   align-content: center;
   margin: 0;
   height: 100vh;
