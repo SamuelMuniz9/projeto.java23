@@ -90,3 +90,37 @@
 .btn-glow:hover {
     box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
 }
+.carousel-control-prev,
+.carousel-control-next {
+    width: 33%;                  
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    transform: scale(1.2);    
+}
+
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 1;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    transform: scale(1.8);     
+}
+
+/* Opcional – estilo com fundo redondo */
+.btn-seta {
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    border-radius: 50%;
+}
+.carousel-control-prev {
+    left: -80px;    /* empurra para a esquerda 🔥 */
+}
+
+.carousel-control-next {
+    right: -80px;   /* empurra para a direita 🔥 */
+}

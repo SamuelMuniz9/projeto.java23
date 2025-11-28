@@ -34,7 +34,7 @@
                 <div class="result-box">
                     <%
                         try {
-                            // Criar objeto Cliente e setar parâmetros do formulário
+                        
                             Cliente cli = new Cliente();
 
                             cli.setNome(request.getParameter("nome"));
@@ -48,7 +48,7 @@
                             cli.setCepCodigoPostal(request.getParameter("cepCodigoPostal"));
                             cli.setInteressePrincipalProduto(request.getParameter("interessePrincipalProduto"));
 
-                            // Mostrar dados enviados
+                            
                     %>
                             <h3 class="fs-3 card-title">Dados Enviados</h3>
                             <ul class="data-list card">
@@ -63,19 +63,19 @@
                                 <li class="fs-5 card-title"><strong>Interesse:</strong> <%= cli.getInteressePrincipalProduto() %></li>
                             </ul>
 
-                            <div class="status-message">
+                            <div>
                                 <%
-                                    // Salvar no banco
+                                   
                                     ClienteDAO cliDAO = new ClienteDAO();
                                     if (cliDAO.cadastrar(cli)) {
                                 %>
-                                        <p class="fs-5 card-title text-uppercase">✅ Cliente inserido com sucesso!</p><br
-                                        <a href="../" class="card-title btn btn-info">Retornar</a>
+                                <p class="fs-5 card-title text-uppercase">✅ Cliente inserido com sucesso!</p><br>
+                                         <a href="../"><button class="tab-button btn-glow btn-primary">Retornar</button></a>
                                 <%
                                     } else {
                                 %>
                                         <p class="fs-5 card-title text-uppercase">❌ Falha ao cadastrar cliente!</p><br>
-                                        <a href="../" class="card-title btn btn-info">Retornar</a>
+                                        <a href="../index.html"><button class="tab-button btn-glow btn-primary">Retornar</button></a>
 
                                 <%
                                     }

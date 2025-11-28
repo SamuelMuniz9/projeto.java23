@@ -23,6 +23,7 @@ body {
   width: 80px;
   border-radius: 18px;
   transition: width 0.4s;
+  z-index: 9999;
 }
 
 .left,

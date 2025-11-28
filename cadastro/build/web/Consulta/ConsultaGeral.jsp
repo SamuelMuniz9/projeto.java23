@@ -6,12 +6,12 @@
  * Angelo andrade  rgm:
 --%>
 
+<%@page import="model.DAO.ClienteDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Cliente"%>
 <%@page import="model.Cliente"%>
-<%@page import="model.DAO.ClienteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/styles.css">
 <!DOCTYPE html>
@@ -98,35 +98,97 @@
         </aside>
         <div style="margin-left:150px">
         <h2>Consulta de Clientes - Geral</h2>
-        
-        <%            
+  <div id="carouselClientes" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <%
             ClienteDAO cliDAO = new ClienteDAO();
-            List<Cliente> lst = new ArrayList();         
-            lst = cliDAO.consultaGeral();
+            List<Cliente> lst = cliDAO.consultaGeral();
+            int index = 0;
 
-            int n_reg = 0;
-    for (Cliente cli : lst) {
-        out.println("<div class='fs-3 card-title cliente-card'><br>");
-        out.println("<h3 class= 'fs-3 card-title' >Cliente #" + cli.getId() + "</h3>");
-        out.println("<ul>");
-        out.println("<li class= 'fs-5 card-title'><strong>Nome:</strong> " + cli.getNome() + " " + cli.getSobrenome() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>E-mail:</strong> " + cli.getEmailComercial() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>Telefone:</strong> " + cli.getTelefoneComercial() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>Função/Cargo:</strong> " + cli.getFuncaoCargo() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>Departamento:</strong> " + cli.getAreaFuncionalDepartamento() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>Organização:</strong> " + cli.getNomeDeSuaOrganizacao() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>País/Região:</strong> " + cli.getPaisRegiao() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>CEP:</strong> " + cli.getCepCodigoPostal() + "</li>");
-        out.println("<li class= 'fs-5 card-title'><strong>Interesse:</strong> " + cli.getInteressePrincipalProduto() + "</li>");
-        out.println("</ul>");
-        out.println("</div>");
-
-    n_reg++;
-            }
-                        
+            for (Cliente cli : lst) {
         %>
-        </div>
-      
 
-    </body>
+        <div class="carousel-item <%= (index == 0 ? "active" : "") %>">
+            <div class='container mt-4'>
+                <h3 class='mb-4'>Cliente #<%= cli.getId() %></h3>
+                <div class='row g-3'>
+
+                    <div class='col-md-6'>
+                        <label><strong>Nome</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getNome() %>' disabled>
+                    </div>
+
+                    <div class='col-md-6'>
+                        <label><strong>Sobrenome</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getSobrenome() %>' disabled>
+                    </div>
+
+                    <div class='col-md-12'>
+                        <label><strong>E-mail Comercial</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getEmailComercial() %>' disabled>
+                    </div>
+
+                    <div class='col-md-12'>
+                        <label><strong>Telefone Comercial</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getTelefoneComercial() %>' disabled>
+                    </div>
+
+                    <div class='col-md-6'>
+                        <label><strong>Função / Cargo</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getFuncaoCargo() %>' disabled>
+                    </div>
+
+                    <div class='col-md-6'>
+                        <label><strong>Departamento</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getAreaFuncionalDepartamento() %>' disabled>
+                    </div>
+
+                    <div class='col-md-4'>
+                        <label><strong>Organização</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getNomeDeSuaOrganizacao() %>' disabled>
+                    </div>
+
+                    <div class='col-md-4'>
+                        <label><strong>País / Região</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getPaisRegiao() %>' disabled>
+                    </div>
+
+                    <div class='col-md-4'>
+                        <label><strong>CEP</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getCepCodigoPostal() %>' disabled>
+                    </div>
+
+                    <div class='col-md-12'>
+                        <label><strong>Interesse</strong></label>
+                        <input type='text' class='form-control' value='<%= cli.getInteressePrincipalProduto() %>' disabled>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <%
+                index++;
+            }
+        %>
+
+    </div>
+
+    <!-- Botões de navegação -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselClientes" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselClientes" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+        </div>
+        <!<!---->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    </body>
 </html>

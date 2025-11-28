@@ -25,35 +25,40 @@ public class ClienteDAO {
         }
     }
 
-    public List<Cliente> consultaGeral() {
-        List<Cliente> list = new ArrayList<>();
-        String sql = "SELECT * FROM clientes";
+    public List<Cliente> consultaGeral() throws ClassNotFoundException {
+    List<Cliente> list = new ArrayList<>();
+    String sql = "SELECT * FROM clientes";
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
 
-            while (rs.next()) {
-                Cliente cli = new Cliente();
-                cli.setId(rs.getInt("id_cliente"));
-                cli.setNome(rs.getString("nome"));
-                cli.setSobrenome(rs.getString("sobrenome"));
-                cli.setEmailComercial(rs.getString("emailComercial"));
-                cli.setTelefoneComercial(rs.getString("telefoneComercial"));
-                cli.setFuncaoCargo(rs.getString("funçãoCargo"));
-                cli.setAreaFuncionalDepartamento(rs.getString("areafuncionalDepartamento"));
-                cli.setNomeDeSuaOrganizacao(rs.getString("nomeDeSuaOrganização"));
-                cli.setPaisRegiao(rs.getString("paisRegiao"));
-                cli.setCepCodigoPostal(rs.getString("CEPCodigoPostal"));
-                cli.setInteressePrincipalProduto(rs.getString("InteressePrincipalProduto"));
-                list.add(cli);
-            }
+    try (Connection conn = Conexao.conecta();
+         PreparedStatement stmt = conn.prepareStatement(sql);
+         ResultSet rs = stmt.executeQuery()) {
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (rs.next()) {
+            Cliente cli = new Cliente();
+            cli.setId(rs.getInt("id_cliente"));
+            cli.setNome(rs.getString("nome"));
+            cli.setSobrenome(rs.getString("sobrenome"));
+            cli.setEmailComercial(rs.getString("emailComercial"));
+            cli.setTelefoneComercial(rs.getString("telefoneComercial"));
+            cli.setFuncaoCargo(rs.getString("funcaoCargo"));
+            cli.setAreaFuncionalDepartamento(rs.getString("areaFuncionalDepartamento"));
+            cli.setNomeDeSuaOrganizacao(rs.getString("nomeDeSuaOrganizacao"));
+            cli.setPaisRegiao(rs.getString("paisRegiao"));
+            cli.setCepCodigoPostal(rs.getString("cepCodigoPostal"));
+            cli.setInteressePrincipalProduto(rs.getString("interessePrincipalProduto"));
+            list.add(cli);
         }
 
-        return list;
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+      
     }
+
+    return list;
+    }
+
+    
     public boolean cadastrar(Cliente cliente) throws ClassNotFoundException {
     // Conexão
     Connection conn = Conexao.conecta();
@@ -66,13 +71,14 @@ public class ClienteDAO {
 "    sobrenome," +
 "    emailComercial," +
 "    telefoneComercial," +
-"    funçãoCargo," +
-"    areafuncionalDepartamento," +
-"    nomeDeSuaOrganização," +
+"    funcaoCargo," +
+"    areaFuncionalDepartamento," +
+"    nomeDeSuaOrganizacao," +
 "    paisRegiao," +
-"    CEPCodigoPostal," +
-"    InteressePrincipalProduto" +
+"    cepCodigoPostal," +
+"    interessePrincipalProduto" +
 ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 
     try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -103,41 +109,51 @@ public class ClienteDAO {
         }
     }
 }
-    public Cliente consultaPorId(int id) {
-        String sql = "SELECT * FROM clientes WHERE id_cliente = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    Cliente cli = new Cliente();
-                    cli.setId(rs.getInt("id_cliente"));
-                    cli.setNome(rs.getString("nome"));
-                    cli.setSobrenome(rs.getString("sobrenome"));
-                    cli.setEmailComercial(rs.getString("emailComercial"));
-                    cli.setTelefoneComercial(rs.getString("telefoneComercial"));
-                    cli.setFuncaoCargo(rs.getString("funçãoCargo"));
-                    cli.setAreaFuncionalDepartamento(rs.getString("areafuncionalDepartamento"));
-                    cli.setNomeDeSuaOrganizacao(rs.getString("nomeDeSuaOrganização"));
-                    cli.setPaisRegiao(rs.getString("paisRegiao"));
-                    cli.setCepCodigoPostal(rs.getString("CEPCodigoPostal"));
-                    cli.setInteressePrincipalProduto(rs.getString("InteressePrincipalProduto"));
-                    return cli;
-                }
+    public Cliente consultaPorId(int id) throws ClassNotFoundException {
+    String sql = "SELECT * FROM clientes WHERE id_cliente = ?";
+
+    try (Connection conn = Conexao.conecta();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setInt(1, id);
+
+        try (ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                Cliente cli = new Cliente();
+                cli.setId(rs.getInt("id_cliente"));
+                cli.setNome(rs.getString("nome"));
+                cli.setSobrenome(rs.getString("sobrenome"));
+                cli.setEmailComercial(rs.getString("emailComercial"));
+                cli.setTelefoneComercial(rs.getString("telefoneComercial"));
+                cli.setFuncaoCargo(rs.getString("funcaoCargo"));
+                cli.setAreaFuncionalDepartamento(rs.getString("areaFuncionalDepartamento"));
+                cli.setNomeDeSuaOrganizacao(rs.getString("nomeDeSuaOrganizacao"));
+                cli.setPaisRegiao(rs.getString("paisRegiao"));
+                cli.setCepCodigoPostal(rs.getString("cepCodigoPostal"));
+                cli.setInteressePrincipalProduto(rs.getString("interessePrincipalProduto"));
+                return cli;
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return null;
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
     }
 
+    return null; // se não encontrar o ID
+}
+
+
     // Consulta por Nome (retorna lista, pode haver múltiplos)
-public List<Cliente> consultaPorNome(String nome) {
+    
+    public List<Cliente> consultaPorNome(String nome) throws ClassNotFoundException {
     List<Cliente> list = new ArrayList<>();
     String sql = "SELECT * FROM clientes WHERE nome LIKE ?";
 
-    try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+    try (Connection conn = Conexao.conecta();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
         stmt.setString(1, "%" + nome + "%");
-        
+
         try (ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Cliente cli = new Cliente();
@@ -146,15 +162,17 @@ public List<Cliente> consultaPorNome(String nome) {
                 cli.setSobrenome(rs.getString("sobrenome"));
                 cli.setEmailComercial(rs.getString("emailComercial"));
                 cli.setTelefoneComercial(rs.getString("telefoneComercial"));
-                cli.setFuncaoCargo(rs.getString("funçãoCargo"));
-                cli.setAreaFuncionalDepartamento(rs.getString("areafuncionalDepartamento"));
-                cli.setNomeDeSuaOrganizacao(rs.getString("nomeDeSuaOrganização"));
+                cli.setFuncaoCargo(rs.getString("funcaoCargo")); // corrigido
+                cli.setAreaFuncionalDepartamento(rs.getString("areaFuncionalDepartamento")); // corrigido
+                cli.setNomeDeSuaOrganizacao(rs.getString("nomeDeSuaOrganizacao")); // corrigido
                 cli.setPaisRegiao(rs.getString("paisRegiao"));
-                cli.setCepCodigoPostal(rs.getString("CEPCodigoPostal"));
-                cli.setInteressePrincipalProduto(rs.getString("InteressePrincipalProduto"));
+                cli.setCepCodigoPostal(rs.getString("cepCodigoPostal")); // corrigido
+                cli.setInteressePrincipalProduto(rs.getString("interessePrincipalProduto")); // corrigido
+
                 list.add(cli);
             }
         }
+
     } catch (SQLException ex) {
         ex.printStackTrace();
     }
@@ -162,43 +180,46 @@ public List<Cliente> consultaPorNome(String nome) {
     return list;
 }
 
+
         
         // UPDATE - Atualiza todos os campos de um cliente pelo ID
-    public boolean atualizar(Cliente cliente) {
-  String sql = "UPDATE clientes SET "
-        + "nome = ?, "
-        + "sobrenome = ?, "
-        + "emailComercial = ?, "
-        + "telefoneComercial = ?, "
-        + "funçãoCargo = ?, "
-        + "areafuncionalDepartamento = ?, "
-        + "nomeDeSuaOrganização = ?, "
-        + "paisRegiao = ?, "
-        + "CEPCodigoPostal = ?, "
-        + "InteressePrincipalProduto = ? "
-        + "WHERE id_cliente = ?";
+    public boolean atualizar(Cliente cliente) throws ClassNotFoundException {
+    String sql = "UPDATE clientes SET "
+            + "nome = ?, "
+            + "sobrenome = ?, "
+            + "emailComercial = ?, "
+            + "telefoneComercial = ?, "
+            + "funcaoCargo = ?, "
+            + "areaFuncionalDepartamento = ?, "
+            + "nomeDeSuaOrganizacao = ?, "
+            + "paisRegiao = ?, "
+            + "cepCodigoPostal = ?, "
+            + "interessePrincipalProduto = ? "
+            + "WHERE id_cliente = ?";
 
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, cliente.getNome());
-            stmt.setString(2, cliente.getSobrenome());
-            stmt.setString(3, cliente.getEmailComercial());
-            stmt.setString(4, cliente.getTelefoneComercial());
-            stmt.setString(5, cliente.getFuncaoCargo());
-            stmt.setString(6, cliente.getAreaFuncionalDepartamento());
-            stmt.setString(7, cliente.getNomeDeSuaOrganizacao());
-            stmt.setString(8, cliente.getPaisRegiao());
-            stmt.setString(9, cliente.getCepCodigoPostal());
-            stmt.setString(10, cliente.getInteressePrincipalProduto());
-            stmt.setInt(11, cliente.getId());
+    try (Connection conn = Conexao.conecta();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            int linhas = stmt.executeUpdate();
-            return linhas > 0;
+        stmt.setString(1, cliente.getNome());
+        stmt.setString(2, cliente.getSobrenome());
+        stmt.setString(3, cliente.getEmailComercial());
+        stmt.setString(4, cliente.getTelefoneComercial());
+        stmt.setString(5, cliente.getFuncaoCargo());
+        stmt.setString(6, cliente.getAreaFuncionalDepartamento());
+        stmt.setString(7, cliente.getNomeDeSuaOrganizacao());
+        stmt.setString(8, cliente.getPaisRegiao());
+        stmt.setString(9, cliente.getCepCodigoPostal());
+        stmt.setString(10, cliente.getInteressePrincipalProduto());
+        stmt.setInt(11, cliente.getId());
 
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
-        }
+        return stmt.executeUpdate() > 0;
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        return false;
     }
+}
+
 
     // DELETE - Deleta um cliente pelo ID
     public boolean deletar(int id) {

@@ -105,17 +105,73 @@
                     Cliente cli = dao.consultaPorId(id);
 
                     if (cli != null) {
-                        out.println("<br><b>Cliente encontrado:</b><br>");
-                        out.println("ID: " + cli.getId() + "<br>");
-                        out.println("Nome: " + cli.getNome() + " " + cli.getSobrenome() + "<br>");
-                        out.println("Email: " + cli.getEmailComercial() + "<br>");
-                        out.println("Telefone: " + cli.getTelefoneComercial() + "<br>");
-                        out.println("Função/Cargo: " + cli.getFuncaoCargo() + "<br>");
-                        out.println("Departamento: " + cli.getAreaFuncionalDepartamento() + "<br>");
-                        out.println("Organização: " + cli.getNomeDeSuaOrganizacao() + "<br>");
-                        out.println("País: " + cli.getPaisRegiao() + "<br>");
-                        out.println("CEP: " + cli.getCepCodigoPostal() + "<br>");
-                        out.println("Interesse: " + cli.getInteressePrincipalProduto() + "<br>");
+                            out.println("<div class='container mt-4'>");
+                            out.println("<h3 class='mb-4'>Cliente #" + cli.getId() + "</h3>");
+
+                            out.println("<div class='row g-3'>");
+
+                            // Nome
+                            out.println("<div class='col-md-6'>");
+                            out.println("<label class='form-label'><strong>Nome</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getNome() + "' disabled>");
+                            out.println("</div>");
+
+                            // Sobrenome
+                            out.println("<div class='col-md-6'>");
+                            out.println("<label class='form-label'><strong>Sobrenome</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getSobrenome() + "' disabled>");
+                            out.println("</div>");
+
+                            // Email
+                            out.println("<div class='col-md-12'>");
+                            out.println("<label class='form-label'><strong>E-mail Comercial</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getEmailComercial() + "' disabled>");
+                            out.println("</div>");
+
+                            // Telefone
+                            out.println("<div class='col-md-12'>");
+                            out.println("<label class='form-label'><strong>Telefone Comercial</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getTelefoneComercial() + "' disabled>");
+                            out.println("</div>");
+
+                            // Função
+                            out.println("<div class='col-md-6'>");
+                            out.println("<label class='form-label'><strong>Função / Cargo</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getFuncaoCargo() + "' disabled>");
+                            out.println("</div>");
+
+                            // Departamento
+                            out.println("<div class='col-md-6'>");
+                            out.println("<label class='form-label'><strong>Departamento</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getAreaFuncionalDepartamento() + "' disabled>");
+                            out.println("</div>");
+
+                            // Organização
+                            out.println("<div class='col-md-4'>");
+                            out.println("<label class='form-label'><strong>Organização</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getNomeDeSuaOrganizacao() + "' disabled>");
+                            out.println("</div>");
+
+                            // País
+                            out.println("<div class='col-md-4'>");
+                            out.println("<label class='form-label'><strong>País / Região</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getPaisRegiao() + "' disabled>");
+                            out.println("</div>");
+
+                            // CEP
+                            out.println("<div class='col-md-4'>");
+                            out.println("<label class='form-label'><strong>CEP</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getCepCodigoPostal() + "' disabled>");
+                            out.println("</div>");
+
+                            // Interesse
+                            out.println("<div class='col-md-12'>");
+                            out.println("<label class='form-label'><strong>Interesse</strong></label>");
+                            out.println("<input type='text' class='form-control' value='" + cli.getInteressePrincipalProduto() + "' disabled>");
+                            out.println("</div>");
+
+                            out.println("</div>"); 
+                            out.println("</div><br><br>");
                     } else {
                         out.println("<br><div class=''>Nenhum cliente encontrado com esse ID</div>");
                     }
